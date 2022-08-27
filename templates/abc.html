@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Home</title>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+   </head>
+   <body>
+      <!-----------------------------------NAVBAR----------------------------------------------------------------->
+      <nav class="navbar navbar-expand-lg bg-light">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="bi bi-house-fill"></i></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link active" aria-current="page" href="{{url_for('Login')}}">Login</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Insert record</a>
+                  </li>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#"><i class="fas fa-volleyball-ball fa-2x"></i></a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#"><i class="fas fa-skiing-nordic fa-2x"></i></i></a>
+                  </li>
+                  <li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#"></a>
+                  </li>
+               </ul>
+               <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-outline-success" type="submit"><i class="bi bi-search fa-spin"></i></button>
+               </form>
+            </div>
+         </div>
+      </nav>
+      <!------------------------------------------ENDING Header and NAVBAE-------------------------------------------------------------->
+      <!------------------------------------------Getting data-------------------------------------------------------------------------->
+      <table class="table table-success table-striped">
+         <thead>
+            <tr>
+               <th scope="col">ID</th>
+               <th scope="col">Name</th>
+               <th scope="col">Email</th>
+               <th scope="col">Mobile No.</th>
+               <th scope="col">Total Match</th>
+               <th scope="col">Total Run</th>
+               <th scope="col">HS</th>
+               <th scope="col">Runrate</th>
+               <th scope="col">Strikerate</th>
+               <th scope="col">Total wkt.</th>
+               <th scope="col">Action</th>
+               <th scope="col"></th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <th scope="row">1</th>
+               <td>Mark</td>
+               <td>Otto</td>
+               <td>@mdo</td>
+               <td>@mdo</td>
+               <td>@mdo</td>
+               <td>@mdo</td>
+               <td>@mdo</td>
+               <td>@mdo</td>
+               <td>@mdo</td>
+               <td><a href="/#" type="button" class="btn btn-warning" data-traget="#edit">Update</a></td>
+               <td><a href="/#" type="button" class="btn btn-danger" >Delete</a></td>
+            </tr>
+         </tbody>
+      </table>
+      <!------------------------------------------------------Modal--------------------------------------------------->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Player's Records</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form action="{{url_for('pl_record')}}" method="POST">
+                     <div class="mb-0">
+                        <label for="name" class="col-form-label">Name:</label>
+                        <input type="text" class="form-control" id="name" name="pl_name">
+                     </div>
+                     <div class="mb-2">
+                        <label for="pl_email" class="col-form-label">Email:</label>
+                        <input type="text" class="form-control" id="pl_email" name="pl_email">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_mobile" class="col-form-label">Mobile NO:</label>
+                        <input type="text" class="form-control" id="pl_mobile" name="pl_mobile">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_totalmatch" class="col-form-label">Total Match:</label>
+                        <input type="text" class="form-control" id="pl_totalmatch" name="pl_totalmatch">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_totalrun" class="col-form-label">Total run:</label>
+                        <input type="text" class="form-control" id="pl_totalrun" name="pl_totalrun">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_Highestrun" class="col-form-label">Highest Run:</label>
+                        <input type="text" class="form-control" id="pl_Highestrun" name="pl_Highestrun">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_runrate" class="col-form-label">Runrate:</label>
+                        <input type="text" class="form-control" id="pl_runrate" name="pl_runrate">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_strikerate" class="col-form-label">Strike Rate:</label>
+                        <input type="text" class="form-control" id="pl_strikerate" name="pl_strikerate">
+                     </div>
+                     <div class="mb-3">
+                        <label for="pl_wicket" class="col-form-label">Total Wicket:</label>
+                        <input type="text" class="form-control" id="pl_wicket" name="pl_wicket">
+                     </div>
+                      <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <button class="btn btn-primary" type="button" id="btn1">Save</button>
+               </div>
+                  </form>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
